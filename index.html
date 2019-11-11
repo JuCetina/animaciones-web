@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animaciones para la web</title>
+    <style>
+        body{
+            margin: 0;
+            font-family: Arial;
+        }
+
+        .container{
+            height: 100vh;
+            position: relative;
+            background: #0f9bf6;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .text{
+            color: rgba(255, 255, 255, .8);
+            font-size: 1.3em;
+            text-align: center;
+            width: 80%;
+        }
+
+        .button-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            z-index: 1;
+        }
+
+        .animation-button{
+            border: 3px solid rgba(255, 255, 255, .8);
+            padding: 10px 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: rgba(255, 255, 255, .8);
+            margin: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .waves-container{
+            position: absolute;
+            bottom: -160px;
+            height: 527px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .wave{
+            width: 2402px;
+            height: 427px;
+            background: url('waves.png') center bottom no-repeat;
+            animation: wave 5s ease-in-out infinite alternate;
+            position: absolute;
+            left: -180px;
+        }
+
+        .wave.a{
+            background-position: 0 -854px;
+        }
+
+        .wave.b{
+            background-position: 0 -427px;
+            animation-delay: .6s;
+        }
+
+        .wave.c{
+            background-position: 0 0px;
+            animation-delay: 1.2s;
+        }
+
+        @keyframes wave{
+            0%{
+                transform: translate(0, 0);
+            }
+            50%{
+                transform: translate(-80px, 30px);
+            }
+            100%{
+                transform: translate(160px, -60px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text">
+            <h1>Animaciones para la web</h1>
+            <p>Para activar algunas animaciones, se requiere hacer click o poner el puntero sobre ellas</p>
+        </div>
+        <div class="button-container">
+                <a href="transiciones.html" class="animation-button" target="_blank">Transiciones</a>
+                <a href="transformacion-rotacion.html" class="animation-button" target="_blank">Rotación</a>
+                <a href="transformacion-sesgado.html" class="animation-button" target="_blank">Sesgado</a>
+                <a href="animacioncss-deteccionjs.html" class="animation-button" target="_blank">Traslación y Escala</a>
+                <a href="animacion-js-elementanimate-controles.html" class="animation-button" target="_blank">Animación controlada</a>
+                <a href="animacion-modal.html" class="animation-button" target="_blank">Modal</a>
+                <a href="animacion-notificacion.html" class="animation-button" target="_blank">Animación Notificación</a>
+                <a href="animacion-sprites.html" class="animation-button" target="_blank">Animación Sprites</a>
+                <a href="animacion-logoplatzi.html" class="animation-button" target="_blank">Animación Logo</a>
+        </div>
+        <div class="waves-container">
+            <div class="wave a"></div>
+            <div class="wave b"></div>
+            <div class="wave c"></div>
+        </div>
+    </div>
+</body>
+</html>

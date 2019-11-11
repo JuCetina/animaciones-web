@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animación CSS - Curva de Bezier</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            border: solid 1px blue;
+            width: 100%;
+        }
+
+        .cuadrado{
+            width: 200px;
+            height: 200px;
+            background: red;
+            color: white;
+            margin: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            /* Opciones de la animación */
+            animation-name: cuadradito;
+            animation-duration: 2s;
+            /* animation-delay: 1s; */
+            /* animation-iteration-count: 2; */
+            animation-iteration-count: infinite;
+            /* animation-timing-function: ease; */
+            /* animation-timing-function: ease-in;
+            animation-timing-function: ease-out;
+            animation-timing-function: ease-in-out;
+            animation-timing-function: linear; */
+            animation-timing-function: cubic-bezier(.17,.67,.96,.16);
+            /* animation-direction: reverse; */
+            animation-direction: alternate;
+            /* animation-fill-mode: forwards; */
+        }
+
+        .container:hover .cuadrado{
+            /* animation-play-state: running; */
+            animation-play-state: paused;
+        }
+
+        @keyframes cuadradito{
+            0%{
+                /* opacity: 1; */
+                left: 0;
+            }
+
+            100%{
+                /* opacity: 0; */
+                left: calc(100% - 240px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cuadrado">
+            Hola Mundo!
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transformación Rotación</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            border: solid 1px blue;
+        }
+
+        .cuadrado{
+            width: 200px;
+            height: 200px;
+            background: red;
+            color: white;
+            margin: 20px;
+            transition: 2s;
+        }
+
+        .container:hover .cuadrado{
+            transform: rotate(45deg); /* Rota en sentido de las manecillas del reloj */
+            transform: rotate(-45deg); /* Rota en sentido contrario de las manecillas del reloj */
+
+            transform: rotateX(45deg); /* Rota en el eje X 45 grados*/
+            transform: rotateX(-45deg); /* Rota en el eje X -45 grados*/
+
+            transform: rotateY(45deg); /* Rota en el eje Y 45 grados*/
+            transform: rotateY(-45deg); /* Rota en el eje Y -45 grados*/
+            
+            transform: rotateZ(45deg); /* Rota en sentido de las manecillas del reloj */
+            transform: rotateZ(-45deg); /* Rota en sentido contrario de las manecillas del reloj */
+            
+            transform: rotate3d(1, 0, 0, 45deg);  /* Rota en el eje X 45 grados*/
+            transform: rotate3d(0, 1, 0, 45deg);  /* Rota en el eje Y 45 grados*/
+            transform: rotate3d(0, 0, 1, 45deg);  /* Rota en el eje Z 45 grados*/
+
+            transform: rotateX(45deg) rotateY(45deg) rotateZ(45deg); /* Rota en todos los ejes los grados indicados, en este caso 45 grados en todos */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cuadrado">
+            Hola Mundo!
+        </div>
+    </div>
+</body>
+</html>

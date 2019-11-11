@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transiciones</title>
+    <style>
+
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .canasta{
+            width: 100vw;
+            height: 100px;
+            border: solid 1px green;
+            position: relative;
+        }
+        
+        .pelota{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            transition: 1s ease;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .a{
+            background: red;
+            left: 0;
+        }
+
+        .b{
+            background: blue;
+            right: 0;
+        }
+
+        .canasta:hover .a{
+            left: calc(50% - 100px);
+        }
+
+        .canasta:hover .b{
+            right: calc(50% - 100px);
+        }
+
+        .texto{
+            text-align: center;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="texto">Pon el puntero encima del recuadro</div>
+    <div class="canasta">
+        <div class="pelota a">Hola</div>
+        <div class="pelota b">Mundo</div>
+    </div>
+</body>
+</html>

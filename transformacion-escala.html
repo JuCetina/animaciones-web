@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transformación Escala</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            border: solid 1px blue;
+        }
+
+        .cuadrado{
+            width: 200px;
+            height: 200px;
+            background: red;
+            color: white;
+            margin: 20px;
+            transition: 1s;
+        }
+
+        .container:hover .cuadrado{
+            /* transform: scale(x, y); */
+            transform: scale(1);
+            transform: scale(2, .5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cuadrado">
+            Hola Mundo!
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animación Like de Twitter con Sprites</title>
+    <style>
+        body{
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .like{
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            background-image: url('corazon.png');
+            background-size: 1450px 50px;
+        }
+        
+        .like.active{
+            animation-name: likes;
+            animation-duration: 1s;
+            animation-timing-function: steps(28);
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes likes{
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                /* background-position: -1400px 0; */
+                background-position: right;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tweet-box">
+        <div class="like" id="like"></div>
+    </div>
+    <script>
+        const $like = document.getElementById('like');
+        $like.addEventListener('click', (event) => {
+            $like.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

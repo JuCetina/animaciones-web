@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animación de Olas</title>
+    <style>
+        body{
+            margin: 0;
+        }
+
+        .container{
+            position: relative;
+            height: 500px;
+            background: #0f9bf6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .content{
+            font-family: Arial;
+            color: rgba(255, 255, 255, .8);
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .waves-container{
+            position: absolute;
+            bottom: -135px;
+            height: 527px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .wave{
+            width: 2402px;
+            height: 427px;
+            background: url('waves.png') center bottom no-repeat;
+            animation: wave 5s ease-in-out infinite alternate;
+            position: absolute;
+            left: -180px;
+            bottom: -20px;
+        }
+
+        .wave.a{
+            background-position: 0 -854px;
+        }
+
+        .wave.b{
+            background-position: 0 -427px;
+            animation-delay: .6s;
+        }
+
+        .wave.c{
+            background-position: 0 0px;
+            animation-delay: 1.2s;
+        }
+
+        @keyframes wave{
+            0%{
+                transform: translate(0, 0);
+            }
+            50%{
+                transform: translate(-80px, 30px);
+            }
+            100%{
+                transform: translate(160px, -60px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Hola mundo!</h1>
+            <p>Esta es una animación para la web</p>
+        </div>
+        <div class="waves-container">
+            <div class="wave a"></div>
+            <div class="wave b"></div>
+            <div class="wave c"></div>
+        </div>
+    </div>
+</body>
+</html>

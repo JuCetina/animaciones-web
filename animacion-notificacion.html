@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animación de notificación</title>
+    <style>
+    @font-face {
+      font-family: 'icomoon';
+      src:  url('fonts/icomoon.eot?txywac');
+      src:  url('fonts/icomoon.eot?txywac#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?txywac') format('truetype'),
+        url('fonts/icomoon.woff?txywac') format('woff'),
+        url('fonts/icomoon.svg?txywac#icomoon') format('svg');
+      font-weight: normal;
+      font-style: normal;
+      font-display: block;
+    }
+
+    [class^="icon-"], [class*=" icon-"] {
+      /* use !important to prevent issues with browser extensions that change fonts */
+      font-family: 'icomoon' !important;
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      
+
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .icon-bell:before {
+      content: "\e900";
+      margin: 3px;
+    }
+    
+    .icon-bell.notify:before{
+      animation-name: bell;
+      animation-duration: 1s;
+      transform-origin: center top;
+      animation-timing-function: ease-out;
+    }
+
+    body{
+        margin: 0;
+        background-image: url('platzi.png');
+        background-size: 100%;
+        height: 200vh;
+    }
+
+    .header{
+        background: #1d3644;
+        height: 52px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 200px;
+    }
+
+    .btn {
+        text-align: center;
+        background: lightgray;
+        padding: .6em .8em .8em;
+        border: none;
+        color: white;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: inset 0 -.2em rgba(0, 0, 0, .2);
+        outline: 0;
+        transition: .2s;
+        will-change: transform;
+    }
+
+    .btn.primary{
+        background: #7dc800;
+    }
+
+    .btn.warning{
+        background: #ff463b;
+    }
+
+    .btn:active{
+        transform: scale(.9);
+    }
+
+    .notification{
+        color: white;
+        display: flex;
+        position: relative;
+    }
+
+    .notification:after{
+        font-family: Arial;
+        font-size: 11px;
+        font-weight: bold;
+        min-width: 14px;
+        height: 14px;
+        background: #ff4600;
+        border-radius: 50%;
+        text-align: center;
+        margin: 2px;
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        content: attr(data-count);
+        transition: .3s;
+        opacity: 0;
+        transform: scale(.5);
+        will-change: opacity, transform;
+    }
+
+    .notification.show-count:after{
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    @keyframes bell{
+        0%{
+            transform: rotate(35deg);
+        }
+        12.5%{
+            transform: rotate(-30deg);
+        }
+        25%{
+            transform: rotate(25deg);
+        }
+        37.5%{
+            transform: rotate(-20deg);
+        }
+        50%{
+            transform: rotate(15deg);
+        }
+        62.5%{
+            transform: rotate(-10deg);
+        }
+        75%{
+            transform: rotate(5deg);
+        }
+        100%{
+            transform: rotate(0);
+        }
+    }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <button id="button" class="btn primary">Click para recibir notificación</button>
+        <div id="notification" class="notification icon-bell"></div>
+    </header>
+    <script>
+        const $button = document.getElementById('button');
+        const $bell = document.getElementById('notification');
+        
+        $button.addEventListener('click', () => {
+            const count = Number($bell.getAttribute('data-count')) || 0;
+            $bell.setAttribute('data-count', count + 1);
+            $bell.classList.add('show-count');
+            $bell.classList.add('notify');
+        });
+
+        $bell.addEventListener('animationend', () => {
+            $bell.classList.remove('notify');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animación CSS - Detección JS</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .container{
+            border: solid 1px blue;
+            width: 100%;
+        }
+
+        .cuadrado{
+            width: 200px;
+            height: 200px;
+            background: red;
+            color: white;
+            margin: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            animation-name: cuadradito, rebote;
+            animation-duration: 3s, .3s;
+            /* animation-delay: 1s; */
+            /* animation-iteration-count: 2; */
+            animation-iteration-count: infinite, 20;
+            /* animation-timing-function: ease; */
+            /* animation-timing-function: ease-in;
+            animation-timing-function: ease-out;
+            animation-timing-function: ease-in-out; */
+            animation-timing-function: linear; 
+            /* animation-timing-function: cubic-bezier(.17,.67,.96,.16); */
+            /* animation-direction: reverse; */
+            animation-direction: alternate;
+            /* animation-fill-mode: forwards; */
+        }
+
+        .container:hover .cuadrado{
+            /* animation-play-state: running; */
+            animation-play-state: paused;
+        }
+
+        @keyframes cuadradito{
+            0%{
+                /* opacity: 1; */
+                left: 0;
+            }
+
+            100%{
+                /* opacity: 0; */
+                left: calc(100% - 240px);
+            }
+        }
+
+        @keyframes rebote{
+            /* 0% */
+            from{
+                transform: translateY(0);
+            }
+
+            /* 100% */
+            to{
+                transform: translateY(100px) scale(1.2, .8);
+            }
+        }
+
+        @keyframes escalera{
+            from{
+                transform: translateY(0);
+            }
+
+            to{
+                transform: translateY(500px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cuadrado" id="cuadrado">
+            Hola Mundo!
+        </div>
+    </div>
+    <script>
+        const $cuadrado = document.getElementById('cuadrado');
+        // $cuadrado.addEventListener('Nombre de evento', 'Función - Que hacer cuando el evento ocurra');
+        $cuadrado.addEventListener('animationend', (event) => {
+            console.log(event);
+            if (event.animationName === 'rebote'){
+                $cuadrado.style.animationName = 'cuadradito, escalera';
+                $cuadrado.style.animationDuration = '3s';
+            }
+        });
+
+    </script>
+</body>
+</html>
