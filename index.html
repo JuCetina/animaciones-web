@@ -16,13 +16,20 @@
             position: relative;
             background: #0f9bf6;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
             overflow: hidden;
         }
 
-        .text{
+        .content-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .text-container{
             color: rgba(255, 255, 255, .8);
             font-size: 1.3em;
             text-align: center;
@@ -93,21 +100,24 @@
 </head>
 <body>
     <div class="container">
-        <div class="text">
-            <h1>Animaciones para la web</h1>
-            <p>Para activar algunas animaciones, se requiere hacer click o poner el puntero sobre ellas</p>
+        <div class="content-container">
+            <div class="text-container">
+                <h1>Animaciones para la web</h1>
+                <p>Para activar algunas animaciones, se requiere hacer click o poner el puntero sobre ellas</p>
+            </div>
+            <div class="button-container">
+                    <a href="transiciones.html" class="animation-button" target="_blank">Transiciones</a>
+                    <a href="transformacion-rotacion.html" class="animation-button" target="_blank">Rotación</a>
+                    <a href="transformacion-sesgado.html" class="animation-button" target="_blank">Sesgado</a>
+                    <a href="animacioncss-deteccionjs.html" class="animation-button" target="_blank">Traslación y Escala</a>
+                    <a href="animacion-js-elementanimate-controles.html" class="animation-button" target="_blank">Animación controlada</a>
+                    <a href="animacion-modal.html" class="animation-button" target="_blank">Modal</a>
+                    <a href="animacion-notificacion.html" class="animation-button" target="_blank">Animación Notificación</a>
+                    <a href="animacion-sprites.html" class="animation-button" target="_blank">Animación Sprites</a>
+                    <a href="animacion-logoplatzi.html" class="animation-button" target="_blank">Animación Logo</a>
+            </div>
         </div>
-        <div class="button-container">
-                <a href="transiciones.html" class="animation-button" target="_blank">Transiciones</a>
-                <a href="transformacion-rotacion.html" class="animation-button" target="_blank">Rotación</a>
-                <a href="transformacion-sesgado.html" class="animation-button" target="_blank">Sesgado</a>
-                <a href="animacioncss-deteccionjs.html" class="animation-button" target="_blank">Traslación y Escala</a>
-                <a href="animacion-js-elementanimate-controles.html" class="animation-button" target="_blank">Animación controlada</a>
-                <a href="animacion-modal.html" class="animation-button" target="_blank">Modal</a>
-                <a href="animacion-notificacion.html" class="animation-button" target="_blank">Animación Notificación</a>
-                <a href="animacion-sprites.html" class="animation-button" target="_blank">Animación Sprites</a>
-                <a href="animacion-logoplatzi.html" class="animation-button" target="_blank">Animación Logo</a>
-        </div>
+
         <div class="waves-container">
             <div class="wave a"></div>
             <div class="wave b"></div>
